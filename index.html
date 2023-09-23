@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/30c7fe091e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/Untitled.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#skill">SKILLS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <i class="fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>FULL STACK DEVELOPER</p>
+                <h1>Hi,I'm <span>Adhi Balaji</span><br> From India</h1>
+            </div>
+        </div>
+    </div>
+   <!--------about--->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About Me</h1>
+                    <p>I'm Adhi Balaji Vinayagam.An Inspring Full Stack Developer<br>
+                    Completed Schooling at National Matric Higher Secondary School at Kalakad <br>on 2021 
+                <br> A Pre-Final Year Student At Rajalakshmi Engineering College,Chennai</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------skill-->
+    <div id="skill">
+        <div class="container">
+            <h1 class="subtitle">Skills
+                <div class="skillslist">
+                    <div>
+                        <h6>Programming in C</h2>
+                            <h6>Programming in Python</h2>
+                                <h6>HTML</h2>
+                                    <h6>CSS</h2>
+                                        <h6>JAVASCRIPT</h2>
+                    </div>
+                </div>
+            </h1>
+        </div>
+    </div><br>
+    <!----contact-->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="subtitle">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>adhibalaji9@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>9361808518</p>
+                    <div class="social-icons">
+                        <a href="https://m.facebook.com/profile.php/?id=100008372130944"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/virat_adhi18/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/adhi-balaji-v-210445287/"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="your name" required>
+                        <input type="email" name="email" placeholder="your email" required>
+                        <textarea name="mess" rows="6" placeholder="your message"></textarea>
+                        <button type="submit" class="btn">SUBMIT</button>
+                    </form><br>
+
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2023 adhi</p>
+        </div>
+    </div>
+    <script>
+        var sidemeu=document.getElementById("sidemenu");
+    function openmenu(){
+        sidemeu.style.right="0";
+    }
+    function closemenu(){
+        sidemeu.style.right="-200";
+    }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx2PvXkAKornDbyJbfzSNqIQ8Ga_ljsLV5f5qJLXRmqk2WQLpRgGsIuOt-Izqxi1isWSg/exec'
+        const form = document.forms['submit-to-google-sheet']
+      const msg=document.getElementById("msg")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },2000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+      
+</body>
+</html>
